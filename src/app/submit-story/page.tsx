@@ -3,15 +3,10 @@
 import React, { useState } from 'react';
 
 const SubmitStory = () => {
-  const [story, setStory] = useState<string>('');
-  const [emojis, setEmojis] = useState<string>('🌟✨🚀💡'); // Default emojis
+  const [story, setStory] = useState<string>(''); // Keep this line
 
   const handleStoryChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setStory(event.target.value);
-  };
-
-  const handleEmojiClick = (emoji: string) => {
-    setStory(story + emoji);
   };
 
   return (
