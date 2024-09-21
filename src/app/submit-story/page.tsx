@@ -3,10 +3,20 @@
 import React, { useState } from 'react';
 
 const SubmitStory = () => {
-  const [story, setStory] = useState<string>(''); // Keep this line
+  const [story, setStory] = useState<string>('');
 
   const handleStoryChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setStory(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    if (story.trim()) {
+      // Here, you can add your submission logic (e.g., sending the story to a server)
+      console.log('Story submitted:', story); // For now, just log it
+      setStory(''); // Clear the textarea after submission
+    } else {
+      alert('Please write a story before submitting!'); // Alert if the textarea is empty
+    }
   };
 
   return (
@@ -29,8 +39,9 @@ const SubmitStory = () => {
               placeholder="Write your story here..."
               rows={12}
             />
-            
-            <button className="submitButton">Submit</button>
+            <button className="submitButton" onClick={handleSubmit}>
+              Submit
+            </button>
           </div>
         </section>
       </main>
