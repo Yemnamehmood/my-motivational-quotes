@@ -1,101 +1,65 @@
-import Image from "next/image";
+'use client'; // Enables Client Components for this file
 
-export default function Home() {
+import React from 'react';
+import Link from 'next/link';
+//import SubmitStory from './submit-story/page';
+
+
+const quotes = [
+  "The only way to do great work is to love what you do. - Steve Jobs",
+  "Life is what happens when you're busy making other plans. - John Lennon",
+  "The best way to predict the future is to invent it. - Alan Kay",
+  "You miss 100% of the shots you don't take. - Wayne Gretzky"
+];
+
+const stories = [
+  "🌟 **Sarah's Journey:** Sarah was an ordinary girl with an **extraordinary dream**. Growing up in a small town, she always felt a spark inside her, a calling to achieve something bigger. Despite facing numerous **setbacks** and **difficulties**, from financial struggles to personal challenges, her **determination** never wavered. She spent countless nights working on her goal, and every failure only fueled her drive to succeed. Her story is a powerful testament to the **strength of perseverance**. Today, Sarah stands as a beacon of hope, showing us that with **hard work** and **passion**, even the loftiest dreams can become reality. 🚀",
+  "🔥 **John’s Triumph:** John began with nothing but a **small idea** and an **unwavering spirit**. Coming from humble beginnings, he had a vision that many doubted. Undeterred by skepticism, John poured his heart and soul into his project. With relentless effort, **innovation**, and a **positive mindset**, he transformed his idea into a thriving business. His journey was not without obstacles, but his ability to see challenges as opportunities helped him overcome them. John's story inspires us to believe in our ideas, keep pushing forward, and embrace every challenge as a step toward success. 🌟"
+];
+
+const HomePage = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="container">
+      <header className="header">
+        <nav className="navbar">
+          <Link href="/">Home</Link>
+          <Link href="/submit-story">Submit Your Story</Link>
+        </nav>
+        <h1 className="title">Welcome to Motivational Stories</h1>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      <main className="main">
+        <section className="quotesSection">
+          <h2>Inspirational Quotes</h2>
+          <div className="quoteBox">
+            {quotes.map((quote, index) => (
+              <blockquote key={index} className="quote">
+                "{quote}"
+              </blockquote>
+            ))}
+          </div>
+        </section>
+
+        <section className="storiesSection">
+          <h2>Short Motivational Stories</h2>
+          <div className="storyBox">
+            {stories.map((story, index) => (
+              <div key={index} className="story">
+                {story}
+
+                
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="footer">
+        <p>© 2024 Motivational Stories. All rights reserved.</p>
       </footer>
     </div>
   );
-}
+};
+
+export default HomePage;
+

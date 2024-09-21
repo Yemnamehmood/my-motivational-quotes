@@ -1,27 +1,226 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Global Styles for all pages */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Container */
+.container {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Header */
+.header {
+  background-color: #004d4d;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.title {
+  font-size: 2.5em;
+  margin-top: 10px;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  background: url('/background.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+/* Quotes Section */
+.quotesSection {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white for better readability */
+  width: 80%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+.quotesSection h2 {
+  color: #004d4d;
+  font-size: 2em; /* Slightly larger font for section heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+.quote {
+  margin-bottom: 20px; /* Space between quotes */
+  padding: 15px;
+  border-left: 5px solid #004d4d; /* Accent color for a visual break */
+  background-color: #f9f9f9; /* Light background for each quote */
+  border-radius: 5px;
+  line-height: 1.6; /* Increased line height for readability */
+  font-style: italic; /* Italic text for quotes */
+}
+
+.quote p {
+  margin: 0; /* Remove margin for paragraphs in quotes */
+  font-size: 1.2em; /* Slightly larger font size for quotes */
+  color: #333; /* Darker text for better contrast */
+}
+
+.quote p::before {
+  content: "“"; /* Opening quote mark */
+  font-size: 3em; /* Larger size for decorative effect */
+  color: #004d4d; /* Match accent color */
+  display: block;
+  text-align: center;
+  margin-bottom: 10px; /* Space below the quote mark */
+}
+
+.quote p::after {
+  content: "”"; /* Closing quote mark */
+  font-size: 3em; /* Larger size for decorative effect */
+  color: #004d4d; /* Match accent color */
+  display: block;
+  text-align: center;
+  margin-top: 10px; /* Space above the quote mark */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quotesSection {
+    width: 95%; /* Increase width for smaller screens */
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+
+
+.storiesSection {
+  font-size: 1.1em; /* Slightly larger font for better readability */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.storiesSection h2 {
+  color: #004d4d;
+  font-size: 2em; /* Slightly larger font for section heading */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+.story {
+  margin-bottom: 20px; /* Space between stories */
+  padding: 15px;
+  border-left: 5px solid #004d4d; /* Accent color for a visual break */
+  background-color: #f9f9f9; /* Light background for each story */
+  border-radius: 5px;
+  line-height: 1.6; /* Increased line height for readability */
+}
+
+.story h3 {
+  color: #004d4d;
+  font-size: 1.4em; /* Heading size for individual stories */
+  margin-bottom: 10px; /* Space below the story heading */
+}
+
+.story p {
+  font-size: 1em; /* Normal text size */
+  color: #333; /* Darker text for better contrast */
+}
+
+.story p strong {
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+.story p em {
+  font-style: italic; /* Italic text for emphasis */
+}
+
+.story p span {
+  display: inline-block;
+  margin-right: 5px; /* Space between emojis and text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quotesSection, .storiesSection {
+    width: 95%; /* Increase width for smaller screens */
   }
+}
+
+
+h2 {
+  color: #004d4d;
+  font-size: 1.8em;
+}
+
+/* Buttons */
+.submitButton, .submitButton:hover {
+  background-color: #004d4d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 20px;
+}
+
+.submitButton:hover {
+  background-color: #003333;
+}
+
+/* Footer */
+.footer {
+  background-color: #004d4d;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Submit Story Page Specific Styles */
+.submitStorySection {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 80%;
+  max-width: 800px;
+  border-radius: 10px;
+}
+
+.storyForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Space between textarea and submit button */
+}
+
+textarea {
+  width: 100%;
+  max-width: 600px;
+  padding: 15px;
+  border: 2px solid #004d4d;
+  border-radius: 5px;
+  font-size: 18px; /* Font size for better readability */
+  resize: vertical; /* Allows resizing vertically */
+}
+
+
+
+.submitButton {
+  background-color: #004d4d;
+  color: white;
+  border: none;
+  padding: 15px 25px; /* Increased padding for better visibility */
+  font-size: 18px; /* Font size for better readability */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #003333;
 }
