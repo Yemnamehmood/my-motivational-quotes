@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-//import SubmitStory from './submit-story/page';
+
 
 
 const quotes = [
@@ -34,7 +34,7 @@ const HomePage = () => {
           <div className="quoteBox">
             {quotes.map((quote, index) => (
               <blockquote key={index} className="quote">
-                "{quote}"
+                &quot;{quote}&quot;
               </blockquote>
             ))}
           </div>
